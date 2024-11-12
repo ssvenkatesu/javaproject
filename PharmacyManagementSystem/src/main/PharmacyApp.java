@@ -24,7 +24,11 @@ public class PharmacyApp {
             System.out.println("2. View Prescriptions");
             System.out.println("3. Add Medication");
             System.out.println("4. Update Inventory");
-            System.out.println("5. Exit");
+            System.out.println("5. View Medication by ID");
+            System.out.println("6. View Inventory by Medication ID");
+            System.out.println("7. Update Stock for Medication");
+            System.out.println("8. Delete Prescription");
+            System.out.println("9. Exit");
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -86,10 +90,62 @@ public class PharmacyApp {
                     crudOperations.updateStock(inventory);
                     System.out.println("Inventory updated successfully.");
                     break;
-
+                
                 case 5:
+                    // View Medication by ID
+                    System.out.print("Enter medication ID: ");
+                    int medId = scanner.nextInt();
+                    scanner.nextLine(); // Consume newline
+                    Medication med = crudOperations.getMedicationById(medId);
+                    if (med != null) {
+                        System.out.println("Medication Details:");
+                        System.out.println("ID: " + med.getMedicationId());
+                        System.out.println("Name: " + med.getName());
+                        System.out.println("Price: " + med.getPrice());
+                    } else {
+                        System.out.println("Medication not found.");
+                    }
+                    break;
+
+                case 6:
+                    // View Inventory by Medication ID
+                    System.out.print("Enter medication ID: ");
+                    int invMedId = scanner.nextInt();
+                    scanner.nextLine(); // Consume newline
+                    Inventory inv = crudOperations.getInventoryByMedicationId(invMedId);
+                    if (inv != null) {
+                        System.out.println("Inventory Details:");
+                        System.out.println("Medication ID: " + inv.getMedicationId());
+                        System.out.println("Stock Quantity: " + inv.getStockQuantity());
+                    } else {
+                        System.out.println("Inventory not found for the given medication ID.");
+                    }
+                    break;
+
+                case 7:
+                    // Update Stock for Medication
+                    System.out.print("Enter medication ID: ");
+                    int updateMedId = scanner.nextInt();
+                    System.out.print("Enter new stock quantity: ");
+                    int newStockQuantity = scanner.nextInt();
+                    scanner.nextLine(); // Consume newline
+
+                    Inventory updateInventory = new Inventory(updateMedId, newStockQuantity);
+                    crudOperations.updateStock(updateInventory);
+                    break;
+
+                case 8:
+                    // Delete Prescription
+                    System.out.print("Enter prescription ID to delete: ");
+                    int prescriptionId = scanner.nextInt();
+                    scanner.nextLine(); // Consume newline
+                    crudOperations.deletePrescription(prescriptionId);
+                    break;
+
+                case 9:
                     System.out.println("Exiting the system.");
                     return;
+                
 
                 default:
                     System.out.println("Invalid option. Please try again.");
