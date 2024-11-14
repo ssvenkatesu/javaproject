@@ -2,6 +2,15 @@ CREATE DATABASE IF NOT EXISTS healthcare;
 
 USE healthcare;
 
+
+create table admin(
+id int primary key auto_increment,
+username VARCHAR(20),
+password VARCHAR(20));
+
+insert into admin(username,password) values("admin","admin@123");
+
+
 CREATE TABLE IF NOT EXISTS Doctors (
     doctor_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -102,4 +111,5 @@ ALTER TABLE Reschedules
 ADD CONSTRAINT reschedules_ibfk_1
 FOREIGN KEY (appointment_id) REFERENCES Appointments(appointment_id)
 ON DELETE CASCADE;
+
 
