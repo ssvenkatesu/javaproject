@@ -1,0 +1,5 @@
+Appointment{appointmentId=2, doctorId=2, patientId=2, appointmentDate=2024-11-15T11:00, appointmentType='Consultation', status='Scheduled', notes='Skin rash consultation'}
+Appointment{appointmentId=3, doctorId=1, patientId=1, appointmentDate=2024-09-19T06:30, appointmentType='Consultation', status='Scheduled', notes='Severe'}
+Appointment{appointmentId=4, doctorId=1, patientId=2, appointmentDate=2024-11-14T15:30, appointmentType='Surgery', status='Scheduled', notes='MInor'}
+Appointment{appointmentId=5, doctorId=1, patientId=1, appointmentDate=2024-11-14T06:30, appointmentType='Consultation', status='Scheduled', notes='Severe'}
+Appointment{appointmentId=6, doctorId=1, patientId=1, appointmentDate=2024-10-19T06:30, appointmentType='Consultation', status='Scheduled', notes='fever'}
